@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ~/.config/hypr/scripts/lock_twice; then 
+    hyprctl dispatch exit; 
+else 
+    notify-send --wait --expire-time=10000 --urgency=critical --app-name=QUIT "Press again to exit" ;
+    sleep 10 && \rm /tmp/exit.lock ;
+fi

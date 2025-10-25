@@ -1,0 +1,147 @@
+{
+  "plugins": {
+    "async.nvim": {
+      "rev": "e4687cc",
+      "src": "https://github.com/lewis6991/async.nvim"
+    },
+    "blink.cmp": {
+      "rev": "a999ddc",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "cyberdream.nvim": {
+      "rev": "eba11f5",
+      "src": "https://github.com/scottmckendry/cyberdream.nvim"
+    },
+    "dracula.nvim": {
+      "rev": "041d923",
+      "src": "https://github.com/Mofiqul/dracula.nvim"
+    },
+    "harpoon": {
+      "rev": "1bc17e3",
+      "src": "https://github.com/ThePrimeagen/harpoon"
+    },
+    "indent-blankline.nvim": {
+      "rev": "005b560",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "indentmini.nvim": {
+      "rev": "0dc4bc2",
+      "src": "https://github.com/nvimdev/indentmini.nvim"
+    },
+    "leap.nvim": {
+      "rev": "ce65ca3",
+      "src": "https://github.com/ggandor/leap.nvim"
+    },
+    "mason.nvim": {
+      "rev": "ad7146a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.animate": {
+      "rev": "8ce6df7",
+      "src": "https://github.com/nvim-mini/mini.animate"
+    },
+    "mini.pick": {
+      "rev": "96ee37d",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "modes.nvim": {
+      "rev": "0932ba4",
+      "src": "https://github.com/mvllow/modes.nvim"
+    },
+    "nvim-colorizer.lua": {
+      "rev": "a065833",
+      "src": "https://github.com/norcalli/nvim-colorizer.lua"
+    },
+    "nvim-java": {
+      "rev": "3d56b74",
+      "src": "https://github.com/nvim-java/nvim-java"
+    },
+    "nvim-java-core": {
+      "rev": "229ebcd",
+      "src": "https://github.com/nvim-java/nvim-java-core"
+    },
+    "nvim-java-dap": {
+      "rev": "55f2395",
+      "src": "https://github.com/nvim-java/nvim-java-dap"
+    },
+    "nvim-java-refactor": {
+      "rev": "b51a57d",
+      "src": "https://github.com/nvim-java/nvim-java-refactor"
+    },
+    "nvim-java-test": {
+      "rev": "7f0f40e",
+      "src": "https://github.com/nvim-java/nvim-java-test"
+    },
+    "nvim-jdtls": {
+      "rev": "380ac14",
+      "src": "https://github.com/mfussenegger/nvim-jdtls"
+    },
+    "nvim-lspconfig": {
+      "rev": "e688b48",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-lspconfig.nvim": [],
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "71385f1",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "nvim-web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil.nvim": {
+      "rev": "919e155",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "pywal15": [],
+    "pywal16.nvim": {
+      "rev": "6d8063c",
+      "src": "https://github.com/uZer/pywal16.nvim"
+    },
+    "rainbow": {
+      "rev": "76ca1a2",
+      "src": "https://github.com/luochen1990/rainbow"
+    },
+    "rainbow-delimiters.nvim": {
+      "rev": "3277ad5",
+      "src": "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
+    },
+    "specs.nvim": {
+      "rev": "2743e41",
+      "src": "https://github.com/edluffy/specs.nvim"
+    },
+    "spring-boot.nvim": {
+      "rev": "dff5fc9",
+      "src": "https://github.com/JavaHello/spring-boot.nvim"
+    },
+    "tiny-inline-diagnostic.nvim": {
+      "rev": "6d8dc61",
+      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "tiny-inline-diagnostics": [],
+    "toggleterm.nvim": {
+      "rev": "9a88eae",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
+    },
+    "vim-cool": {
+      "rev": "9ea940c",
+      "src": "https://github.com/romainl/vim-cool"
+    },
+    "vim-moonfly-colors": {
+      "rev": "78b4733",
+      "src": "https://github.com/bluz71/vim-moonfly-colors"
+    },
+    "vim-surround": {
+      "rev": "3d188ed",
+      "src": "https://github.com/tpope/vim-surround"
+    }
+  }
+}
