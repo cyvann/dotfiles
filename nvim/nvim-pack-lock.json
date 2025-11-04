@@ -48,9 +48,17 @@
       "rev": "0932ba4",
       "src": "https://github.com/mvllow/modes.nvim"
     },
+    "neogen": {
+      "rev": "d7f9461",
+      "src": "https://github.com/danymat/neogen"
+    },
     "nvim-colorizer.lua": {
       "rev": "a065833",
       "src": "https://github.com/norcalli/nvim-colorizer.lua"
+    },
+    "nvim-dap": {
+      "rev": "6782b09",
+      "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-java": {
       "rev": "3d56b74",

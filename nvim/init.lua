@@ -54,11 +54,15 @@ vim.pack.add({
 		branch = "main"
 	},
 	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter", -- TreeSitter improved syntax highlighting and syntax tree
+		src = "https://github.com/nvim-treesitter/nvim-treesitter", -- TreeSitter, improved syntax highlighting and syntax tree
 		branch = "main"
 	},
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
+
+	{ src = "https://github.com/mfussenegger/nvim-dap" }, -- Debug Adapter Protocol
+	{ src = "https://github.com/mfussenegger/nvim-jdtls" }, -- Java Dev Tools
+	{ src = "https://github.com/danymat/neogen" }, -- Documentation/Annotation generation
+
 })
 
 
@@ -73,6 +77,7 @@ require("ibl").setup()                                          -- ibl is indent
 require("leap").set_default_mappings()
 require("colorizer").setup()
 require("mini.pick").setup()
+require("neogen").setup()
 
 vim.lsp.enable({
 	"lua_ls", "jdtls", "rust_analyzer", "bash-language-server", "css-lsp",
@@ -102,7 +107,7 @@ require("oil").setup({
 
 require("toggleterm").setup({
 	direction = "float",
-	open_mapping = [[<leader>t]],
+	open_mapping = [[<leader>s]],
 	insert_mappings = false,
 	terminal_mappings = false,
 	start_in_insert = true,
@@ -155,8 +160,15 @@ vim.keymap.set("n", "<leader>ff", ":Pick files<CR>") -- [f]ind [f]iles
 vim.keymap.set("n", "<leader>fg", ":Pick grep_live pattern='<cword>'<CR>") -- [f]ind [g]rep 
 vim.keymap.set("n", "<leader>fs", ":Oil --float<CR>") -- [f]ile [s]ystem
 
+-- Generate
+vim.keymap.set("n", "<leader>gd", ":!mvn clean compile javadoc:javadoc<CR>") -- [g]enerate [d]ocs
+vim.keymap.set("n", "<leader>gc", ":Neogen class<CR>") -- [g]enerate [c]lass annotation
+vim.keymap.set("n", "<leader>gt", ":Neogen type<CR>")  -- [g]enerate [t]ype annotation
+vim.keymap.set("n", "<leader>gf", ":Neogen func<CR>")  -- [g]enerate [f]unction annotation
+
 -- Toggleterm
-vim.keymap.set('t', '<esc>', require("toggleterm").toggle_all) -- [t]erminal
+vim.keymap.set('t', '<esc>', require("toggleterm").toggle_all) -- [t]erminal escape
+-- vim.keymap.set('t', '<esc>', '<C-\\><C-n>') -- terminal escape
 
 -- Harpoon
 vim.keymap.set("n", "<leader>a", require("harpoon.mark").add_file) -- [a]dd file to harpoon
@@ -194,16 +206,16 @@ local function toggle_pywal_theme()
 end
 
 vim.api.nvim_create_user_command('TogglePywal', toggle_pywal_theme, {})
-vim.keymap.set("n", "<leader>c", toggle_pywal_theme)
+vim.keymap.set("n", "<leader>C", toggle_pywal_theme)
 
 -- Custom Command for toggling a terminal that autoopens into a set command based on language
 -- :make can definitely do this job, but this works fine (tho no quickfix).
 local Terminal       = require('toggleterm.terminal').Terminal
 local build_terminal = Terminal:new({ hidden = true, close_on_exit = false })
 
-local function build_terminal_toggle()
+local function run_terminal_toggle()
 	if vim.bo.filetype == "java" then
-		build_terminal.cmd = "mvn test" -- "mvn -q clean compile exec:java"
+		build_terminal.cmd = "mvn -q clean compile exec:java"
 	elseif vim.bo.filetype == "python" then
 		build_terminal.cmd = "python \"" .. vim.api.nvim_buf_get_name(0) .. "\""
 	elseif vim.bo.filetype == "lua" then
@@ -215,4 +227,25 @@ local function build_terminal_toggle()
 	build_terminal:toggle()
 end
 
-vim.keymap.set('n', '<leader>b', build_terminal_toggle)
+local function test_terminal_toggle()
+	if vim.bo.filetype == "java" then
+		build_terminal.cmd = "mvn test" -- "mvn -q clean compile exec:java"
+	else
+		print("No build command set for filetype: " .. vim.bo.filetype)
+		return
+	end
+	build_terminal:toggle()
+end
+
+
+local function compile()
+	if vim.bo.filetype == "java" then
+		vim.cmd [[JdtCompile]]
+	else
+		vim.cmd [[make]]
+	end
+end
+
+vim.keymap.set('n', '<leader>r', run_terminal_toggle)
+vim.keymap.set('n', '<leader>t', test_terminal_toggle)
+vim.keymap.set('n', '<leader>c', compile)
